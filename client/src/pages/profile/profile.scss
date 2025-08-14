@@ -1,0 +1,215 @@
+@import "../../style.scss";
+
+.profile {
+  background-color: var(--bg-soft);
+  min-height: 100vh;
+
+  .images {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    @include mobile {
+      height: 200px;
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profilePic {
+      width: 200px;
+      height: 200px;
+      @include mobile {
+        height: 100px;
+        width: 100px;
+      }
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translate(-50%, 50%);
+    }
+  }
+  .profileContainer {
+    padding: 20px 70px;
+
+    @include mobile {
+      padding: 10px;
+    }
+
+    @include tablet {
+      padding: 20px;
+    }
+
+    .uInfo {
+      min-height: 250px;
+      -webkit-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+      -moz-box-shadow: 0px 0px 25px -10px rgba(0, 0, 0, 0.38);
+      box-shadow: var(--shadow-card);
+      border-radius: var(--radius);
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 90px 50px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+
+      @include mobile {
+        flex-direction: column;
+        height: 30vh;
+        padding: 20px;
+        margin-top: 50px;
+      }
+
+      .left {
+        flex: 1;
+        display: flex;
+        font-size: 12px;
+        flex-direction: column;
+        gap: 25px;
+        padding-bottom: 45px;
+      }
+
+      .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        a {
+          color: var(--text-soft);
+          transition: color var(--speed) var(--easing);
+          
+          &:hover {
+            color: var(--primary);
+          }
+        }
+        span {
+          font-size: 30px;
+          font-weight: 500;
+          color: var(--text);
+        }
+        .stats {
+          display: flex;
+          gap: 30px;
+          padding: 20px;
+          background-color: var(--bg-accent);
+          border-radius: var(--radius);
+          border: 1px solid var(--border);
+          
+          @include mobile {
+            gap: 15px;
+            padding: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          
+          .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-width: 60px;
+            transition: transform var(--speed) var(--easing);
+            
+            &:hover {
+              transform: translateY(-2px);
+            cursor: pointer;
+            }
+            
+            .number {
+              font-size: 24px;
+              font-weight: 600;
+              color: var(--primary);
+              line-height: 1;
+              
+              @include mobile {
+                font-size: 20px;
+              }
+            }
+            
+            .label {
+              font-size: 12px;
+              color: var(--text-soft);
+              font-weight: 500;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              
+              @include mobile {
+                font-size: 11px;
+              }
+            }
+          }
+        }
+
+        .info {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 20px;
+
+          .item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-soft);
+            transition: color var(--speed) var(--easing);
+            
+            &:hover {
+              color: var(--primary);
+            }
+
+            span {
+              font-size: 12px;
+            }
+          }
+        }
+        
+        button {
+          border: none;
+          background-color: var(--primary);
+          color: white;
+          padding: 12px 24px;
+          border-radius: var(--radius);
+          cursor: pointer;
+          font-weight: 500;
+          transition: all var(--speed) var(--easing);
+          box-shadow: var(--shadow-card);
+          
+          &:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow);
+          }
+          
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+
+      .right {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+        
+        svg {
+          color: var(--text-soft);
+          cursor: pointer;
+          transition: color var(--speed) var(--easing);
+          
+          &:hover {
+            color: var(--primary);
+          }
+        }
+      }
+    }
+  }
+}

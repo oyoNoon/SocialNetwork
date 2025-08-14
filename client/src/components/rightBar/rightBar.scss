@@ -1,0 +1,156 @@
+@import "../../style.scss";
+
+.rightBar {
+  flex: 3;
+  position: sticky;
+  top: 50px;
+  right: 0;
+  height: calc(100vh - 50px);
+  overflow: scroll;
+  background-color: var(--bg-soft);
+
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+    display: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .item {
+      min-width: 370px;
+      box-shadow: var(--shadow-card);
+      padding: 20px;
+      margin-bottom: 25px;
+      background-color: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+
+      &:first-child {
+        flex: 1;
+      }
+      &:last-child {
+        flex: 1;
+      }
+    > span {
+      color: var(--text);
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 16px;
+      display: block;
+      // padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    &:last-child .content {
+      height: 330px;
+      // height: 100%;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+
+      .user {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // margin: 15px 0px;
+      padding: 12px;
+      border-radius: var(--radius);
+      transition: all var(--speed) var(--easing);
+
+      &:hover {
+        background-color: var(--bg-hover);
+        transform: translateY(-1px);
+      }
+
+      .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+        flex: 1;
+
+        img {
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid var(--border);
+          transition: transform var(--speed) var(--easing);
+        }
+
+        &:hover img {
+          transform: scale(1.05);
+        }
+
+        .online {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: var(--success-color);
+          position: absolute;
+          top: 2px;
+          left: 33px;
+          border: 2px solid var(--bg-card);
+        }
+
+        span {
+          font-weight: 500;
+          color: var(--text);
+          font-size: 14px;
+        }
+
+        p {
+          color: var(--text-soft);
+          font-size: 13px;
+          margin: 0;
+          line-height: 1.4;
+
+          span {
+            font-weight: 600;
+            color: var(--primary);
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+          border: none;
+          background-color: var(--primary);
+          color: white;
+          padding: 8px 16px;
+          border-radius: var(--radius);
+          cursor: pointer;
+          font-size: 12px;
+          font-weight: 500;
+          transition: all var(--speed) var(--easing);
+
+          &:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+    }
+  }
+}

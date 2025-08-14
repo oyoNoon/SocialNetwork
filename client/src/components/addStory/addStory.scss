@@ -1,0 +1,145 @@
+@import "../../style.scss";
+
+.addStory {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  .wrapper {
+    width: 40%;
+    height: auto;
+    background-color: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    box-shadow: var(--shadow-card);
+
+    @include mobile {
+      width: 90%;
+      height: auto;
+      padding: 30px;
+    }
+
+    @include tablet {
+      width: 70%;
+      padding: 40px;
+    }
+
+    h1 {
+      color: var(--text);
+      margin: 0;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .file {
+        label {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          cursor: pointer;
+
+          span {
+            font-size: 14px;
+            color: var(--text-soft);
+          }
+
+          .imgContainer {
+            width: 100%;
+            height: 300px;
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all var(--speed) var(--easing);
+
+            &:hover {
+              border-color: var(--primary);
+              background-color: var(--bg-hover);
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .placeholder {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+              color: var(--text-soft);
+
+              .icon {
+                font-size: 48px;
+                opacity: 0.5;
+              }
+
+              span {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+
+      .buttons {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+
+        button {
+          padding: 12px 24px;
+          border: none;
+          border-radius: var(--radius);
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: 500;
+          transition: all var(--speed) var(--easing);
+
+          &:first-child {
+            background-color: var(--primary);
+            color: white;
+
+            &:hover:not(:disabled) {
+              background-color: var(--primary-dark);
+            }
+
+            &:disabled {
+              background-color: var(--text-soft);
+              cursor: not-allowed;
+            }
+          }
+
+          &.cancel {
+            background-color: var(--bg-hover);
+            color: var(--text);
+            border: 1px solid var(--border);
+
+            &:hover {
+              background-color: var(--bg-card);
+              border-color: var(--text-soft);
+            }
+          }
+        }
+      }
+    }
+  }
+}

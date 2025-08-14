@@ -1,0 +1,186 @@
+@import "../../style.scss";
+
+.postDetail {
+  padding: 20px;
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      
+      .backButton {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: var(--radius);
+        transition: all var(--speed) var(--easing);
+        
+        &:hover {
+          background-color: var(--bg-hover);
+          transform: translateY(-1px);
+        }
+      }
+      
+      h2 {
+        color: var(--text);
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+    
+    .postContent {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-card);
+      
+      .postHeader {
+        margin-bottom: 20px;
+        
+        .userInfo {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+          }
+          
+          .details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            
+            .name {
+              font-weight: 600;
+              font-size: 16px;
+              color: var(--text);
+            }
+            
+            .date {
+              font-size: 13px;
+              color: var(--text-soft);
+            }
+          }
+        }
+      }
+      
+      .postBody {
+        .description {
+          font-size: 16px;
+          line-height: 1.6;
+          color: var(--text);
+          margin-bottom: 20px;
+          white-space: pre-wrap;
+        }
+        
+        .postImage {
+          width: 100%;
+          max-height: 600px;
+          object-fit: cover;
+          border-radius: var(--radius);
+          border: 1px solid var(--border);
+        }
+      }
+    }
+    
+    .commentsSection {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow-card);
+      
+      h3 {
+        color: var(--text);
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+    
+    .loading, .error {
+      text-align: center;
+      padding: 60px 20px;
+      
+      h2 {
+        color: var(--text);
+        margin-bottom: 15px;
+      }
+      
+      p {
+        color: var(--text-soft);
+        margin-bottom: 20px;
+      }
+      
+      .backButton {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        text-decoration: none;
+        color: var(--primary);
+        font-weight: 500;
+        padding: 12px 24px;
+        border: 1px solid var(--primary);
+        border-radius: var(--radius);
+        transition: all var(--speed) var(--easing);
+        
+        &:hover {
+          background-color: var(--primary);
+          color: white;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 12px var(--shadow-color);
+        }
+      }
+    }
+  }
+  
+  @include mobile {
+    padding: 10px;
+    
+    .container {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        
+        h2 {
+          font-size: 20px;
+        }
+      }
+      
+      .postContent, .commentsSection {
+        padding: 20px;
+      }
+    }
+  }
+  
+  @include tablet {
+    padding: 15px;
+    
+    .container {
+      .postContent, .commentsSection {
+        padding: 25px;
+      }
+    }
+  }
+}

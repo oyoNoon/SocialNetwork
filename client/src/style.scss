@@ -1,0 +1,166 @@
+/* src/style.scss */
+
+/* ---------- Global CSS variables (base) ---------- */
+:root {
+  /* Primary colors */
+  --primary: #7c3aed;
+  --primary-light: #9f7aea;
+  --primary-dark: #6b21a8;
+  
+  /* Accent colors */
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  
+  /* Basic UI variables */
+  --radius: 12px;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --shadow-color: rgba(124, 58, 237, 0.2);
+  
+  /* Animation variables */
+  --speed: 220ms;
+  --easing: cubic-bezier(0.2, 0.8, 0.2, 1);
+  
+  /* Status colors */
+  --error-color: #ff5b6a;
+  --success-color: #2b9f64;
+}
+
+/* ---------- Global reset / base ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f8f9fa;
+  input:focus {
+  outline: none;
+}
+}
+
+/* ---------- System theme preference - auto apply (when data-theme is not manually set) ---------- */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    /* Text colors */
+    --text: #1a202c;
+    --text-soft: #4a5568;
+    --text-muted: #4a5568;
+    
+    /* Background colors */
+    --bg: #ffffff;
+    --bg-soft: #f7fafc;
+    --bg-card: #ffffff;
+    --bg-hover: #f0f5ff;
+    --bg-accent: #eaf1ff;
+    --bg-primary: #e8f0ff;
+    --bg-surface: #ffffffcc;
+    
+    /* Borders and shadows */
+    --border: #e2e8f0;
+    --shadow-card: 0 4px 6px var(--shadow-color, rgba(124, 58, 237, 0.1));
+    
+    /* Logo colors */
+    --logo: var(--primary-dark, #6b21a8);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    /* Text colors */
+    --text: #e2e8f0;
+    --text-soft: #94a3b8;
+    --text-muted: #64748b;
+    
+    /* Background colors */
+    --bg: #0f172a;
+    --bg-soft: #1e293b;
+    --bg-card: #1e293b;
+    --bg-hover: #2d1b69;
+    --bg-accent: #1e1b4b;
+    --bg-primary: #1e1b4b;
+    --bg-surface: #1e293bcc;
+    
+    /* Borders and shadows */
+    --border: #334155;
+    --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+    
+    /* Logo colors */
+    --logo: #a855f7;
+  }
+}
+
+/* =========================
+   THEME SYSTEM - Using data attribute naming
+   =========================
+   Instructions:
+   1) Set data-theme="light" or data-theme="dark" on root element
+   2) Usage: <html data-theme="light"> or <body data-theme="dark">
+   3) Use var(--bg), var(--text) etc. variables directly in child elements
+*/
+
+/* Light Theme - Using :root style selector */
+:root[data-theme="light"],
+[data-theme="light"] {
+  /* Text colors */
+  --text: #1a202c;
+  --text-soft: #4a5568;
+  --text-muted: #4a5568;
+  
+  /* Background colors */
+  --bg: #ffffff;
+  --bg-soft: #f7fafc;
+  --bg-card: #ffffff;
+  --bg-hover: #f0f5ff;
+  --bg-accent: #eaf1ff;
+  --bg-primary: #e8f0ff;
+  --bg-surface: #ffffffcc;
+  
+  /* Borders and shadows */
+  --border: #e2e8f0;
+  --shadow-card: 0 4px 6px var(--shadow-color, rgba(124, 58, 237, 0.1));
+  
+  /* Logo colors */
+  --logo: var(--primary-dark, #6b21a8);
+}
+
+/* Dark Theme - Using :root style selector */
+:root[data-theme="dark"],
+[data-theme="dark"] {
+  /* Text colors */
+  --text: #e2e8f0;
+  --text-soft: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Background colors */
+  --bg: #0f172a;
+  --bg-soft: #1e293b;
+  --bg-card: #1e293b;
+  --bg-hover: #2d1b69;
+  --bg-accent: #1e1b4b;
+  --bg-primary: #1e1b4b;
+  --bg-surface: #1e293bcc;
+  
+  /* Borders and shadows */
+  --border: #334155;
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  
+  /* Logo colors */
+  --logo: #a855f7;
+}
+
+/* =========================
+   (Keep) Responsive mixins
+   ========================= */
+@mixin mobile {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 960px) and (min-width: 480px) {
+    @content;
+  }
+}

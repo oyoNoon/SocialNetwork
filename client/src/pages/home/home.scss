@@ -1,0 +1,96 @@
+@import "../../style.scss";
+
+.home {
+  padding: 20px 70px;
+  background-color: var(--bg-soft);
+  min-height: 100vh;
+  min-width: 480px;
+
+  @include mobile {
+    padding: 10px;
+  }
+
+  @include tablet {
+    padding: 20px;
+  }
+  
+  .home-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    .welcome-section {
+      background: linear-gradient(to right, var(--primary, #7c3aed), var(--primary-light, #9f7aea));
+      border-radius: var(--radius, 12px);
+      padding: 20px 30px;
+      margin-bottom: 30px;
+      color: var(--bg-surface, white);
+      box-shadow: 0 4px 12px var(--shadow-color, rgba(124, 58, 237, 0.2));
+      animation: fadeIn var(--speed, 220ms) var(--easing, cubic-bezier(0.2, 0.8, 0.2, 1));
+      
+      h2 {
+        margin-bottom: 8px;
+        font-size: 24px;
+      }
+      
+      p {
+        opacity: 0.9;
+        font-size: 16px;
+      }
+      
+      @include mobile {
+        padding: 15px;
+        margin-bottom: 20px;
+        
+        h2 {
+          font-size: 20px;
+        }
+        
+        p {
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .content-section {
+      .posts-container {
+        background-color: var(--bg-card, white);
+        border-radius: var(--radius, 12px);
+        padding: 20px;
+        box-shadow: var(--shadow-card, 0 4px 6px rgba(124, 58, 237, 0.1));
+        
+        h3 {
+          margin: 20px 0 15px 0;
+          font-size: 18px;
+          font-weight: 500;
+          color: var(--text);
+          border-bottom: 2px solid var(--primary-light, #9f7aea);
+          padding-bottom: 8px;
+          display: inline-block;
+        }
+        
+        @include mobile {
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add hover effects */
+.home .home-container {
+  .welcome-section:hover {
+    box-shadow: 0 6px 16px var(--shadow-color, rgba(124, 58, 237, 0.3));
+    transform: translateY(-2px);
+    transition: all var(--speed, 220ms) var(--easing, cubic-bezier(0.2, 0.8, 0.2, 1));
+  }
+  
+  .content-section .posts-container:hover {
+    box-shadow: var(--shadow-card, 0 6px 12px rgba(124, 58, 237, 0.15));
+    transition: all var(--speed, 220ms) var(--easing, cubic-bezier(0.2, 0.8, 0.2, 1));
+  }
+}

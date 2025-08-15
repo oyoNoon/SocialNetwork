@@ -23,7 +23,7 @@
     background: linear-gradient(
       180deg,
       color-mix(in oklab, var(--bg-surface) 92%, white 8%),
-        var(--bg-surface)
+      var(--bg-surface)
     );
     border: 1px solid var(--border);
     border-radius: calc(var(--radius) + 4px);
@@ -83,7 +83,7 @@
         line-height: 1.08;
         letter-spacing: -0.02em;
         font-weight: 800;
-        text-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        text-shadow: 0 8px 30px var(--shadow);
         animation: fadeUp 0.6s var(--easing) 0.05s both;
       }
 
@@ -179,9 +179,9 @@
         }
 
         .error {
-          color: #ff5b6a;
-          background: color-mix(in oklab, #ff5b6a 18%, transparent);
-          border: 1px solid color-mix(in oklab, #ff5b6a, white 60%);
+          color: var(--error-color);
+          background: color-mix(in oklab, var(--error-color) 18%, transparent);
+          border: 1px solid color-mix(in oklab, var(--error-color), white 60%);
           padding: 10px 12px;
           border-radius: 12px;
           font-size: 14px;
@@ -192,6 +192,14 @@
           gap: 12px;
           align-items: center;
           margin-top: 8px;
+
+          a {
+            text-decoration: none;
+            color: var(--primary-light);
+            &:hover {
+              color: var(--primary);
+            }
+          }
         }
 
         button[type="submit"] {

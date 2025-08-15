@@ -23,7 +23,7 @@
     background: linear-gradient(
       180deg,
       color-mix(in oklab, var(--bg-surface) 92%, white 8%),
-        var(--bg-surface)
+      var(--bg-surface)
     );
     border: 1px solid var(--border);
     border-radius: calc(var(--radius) + 4px);
@@ -58,8 +58,8 @@
             rgba(10, 12, 22, 0.6),
             rgba(10, 12, 22, 0.2)
           ),
-          url("https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1600")
-            center / cover no-repeat;
+          url("../../assets/pexels-5lfilm-20041859.jpg") center / cover
+            no-repeat;
         z-index: -2;
         filter: saturate(1.05);
       }

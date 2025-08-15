@@ -50,7 +50,7 @@ const Register = () => {
     setLoading(true);
     try {
       const { username, email, password, name } = inputs;
-      const res = await axios.post("http://localhost:8800/api/auth/register", {
+      const res = await axios.post("http://milanet.homes/api/auth/register", {
         username,
         email,
         password,

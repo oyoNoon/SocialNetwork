@@ -1,4 +1,3 @@
-import { da } from "@faker-js/faker";
 import { db } from "../connect.js";
 import jwt from "jsonwebtoken";
 
@@ -93,7 +92,7 @@ export const getLatestActivities = (req, res) => {
         WHERE r.followerUserId = ?
         AND r.followedUserId = p.userId
       )
-    ORDER BY p.createdAt DESC;`
+    ORDER BY p.createdAt DESC;`;
 
     db.query(q, [userInfo.id, userInfo.id], (err, data) => {
       if (err) return res.status(500).json(err);
@@ -105,7 +104,7 @@ export const getLatestActivities = (req, res) => {
 
 export const getUserStats = (req, res) => {
   const userId = req.params.userId;
-  
+
   // 获取关注者数量、关注数量、帖子数量、被点赞总数
   const q = `
     SELECT 
@@ -114,10 +113,9 @@ export const getUserStats = (req, res) => {
       (SELECT COUNT(*) FROM posts WHERE userId = ?) as posts,
       (SELECT COUNT(*) FROM likes l JOIN posts p ON l.postId = p.id WHERE p.userId = ?) as totalLikes
   `;
-  
+
   db.query(q, [userId, userId, userId, userId], (err, data) => {
     if (err) return res.status(500).json(err);
     return res.status(200).json(data[0]);
   });
 };
-

@@ -11,7 +11,7 @@ export const AuthContextProvider = ({ children }) => {
   const login = async (inputs) => {
     // withCredentials is used to determine whether or not cross-origin requests (requests to a different domain) should include cookies, authorization headers, or other credentials.
     const res = await axios.post(
-      "http://localhost:8800/api/auth/login",
+      "http://milanet.homes/api/auth/login",
       inputs,
       {
         withCredentials: true,
@@ -21,14 +21,18 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await axios.post("http://localhost:8800/api/auth/logout", {}, {
-      withCredentials: true,
-    });
+    await axios.post(
+      "http://milanet.homes/api/auth/logout",
+      {},
+      {
+        withCredentials: true,
+      }
+    );
     setCurrentUser(null);
   };
 
   const updateUser = (newUser) => {
-    console.log(newUser)
+    console.log(newUser);
     setCurrentUser((prevUser) => ({
       ...prevUser,
       ...newUser,
